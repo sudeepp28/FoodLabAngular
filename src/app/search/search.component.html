@@ -1,0 +1,31 @@
+@if(SearchedRestaurants.length>0){
+    <div class="orders-container">
+  @for (restaurant of SearchedRestaurants; track restaurant._id) {
+    <a [routerLink]="['/restaurant', restaurant.name,restaurant._id]" class="restaurant-card-link">
+    <div class="order-card">
+    
+      
+        <div class="img">
+            <img [src]="restaurant.imgUrl" alt="{{ restaurant.name }}" />
+        </div>
+       
+        <div class="restaurant-info">
+          <h2>{{ restaurant.name }}</h2>
+          <p class="address">{{ restaurant.address }}</p>
+          <p class="rating">
+            <span>{{ restaurant.rating }}<i class="fa-solid fa-star"></i></span>
+          </p>
+
+           
+        </div>
+        
+      </div>
+       </a>
+      
+    
+  }
+</div>
+}
+@else {
+    <h2>Searched Item not Found</h2>
+}

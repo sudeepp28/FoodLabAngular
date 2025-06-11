@@ -1,0 +1,122 @@
+/* Container Setup */
+.restaurant-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  padding: 30px 20px;
+  /* background-color: #f8f8f8; */
+}
+
+/* Remove link underline & color */
+.restaurant-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Card Design */
+.restaurant-card {
+  width: 100%;
+  max-width: 300px;
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.restaurant-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Styling */
+.restaurant-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Text Info */
+.restaurant-info {
+  padding: 16px;
+}
+
+.restaurant-info h2 {
+  font-size: 20px;
+  margin: 0 0 6px;
+  color: #333;
+}
+
+.restaurant-info .address {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+/* Rating Section */
+.restaurant-info .rating {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+}
+
+.restaurant-info .rating i {
+  color: #f5a623;
+  margin-left: 6px;
+}
+
+/* Responsive for Mobile */
+@media (max-width: 768px) {
+  .restaurant-container {
+    padding: 20px 10px;
+    gap: 16px;
+  }
+
+  .restaurant-card {
+    max-width: 90%;
+  }
+
+  .restaurant-info h2 {
+    font-size: 18px;
+  }
+
+  .restaurant-info .address,
+  .restaurant-info .rating {
+    font-size: 13px;
+  }
+}
+.orders-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.order-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+ img {
+  width: 300px;
+  
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}

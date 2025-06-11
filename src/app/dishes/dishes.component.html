@@ -1,0 +1,25 @@
+@if (selectedRestaurant) {
+  <h2>{{ selectedRestaurant.name }}</h2>
+  <p><strong>Address:</strong> {{ selectedRestaurant.address }}</p>
+  <p><strong>Rating:</strong> {{ selectedRestaurant.rating }}</p>
+
+  <h3>Dishes:</h3>
+  <ul>
+    @for (dish of selectedRestaurant.dishes; track dish.name) {
+     <div (click)="selectDish(dish)">
+       <li>
+        <img [src]="dish.imgUrl" [alt]="dish.name">
+        <p><strong>{{ dish.name }}</strong></p>
+        <p>Prices:</p>
+        <p> <span class="price-badge">{{dish.prices[0].quantity}}</span>
+       ₹{{dish.prices[0].price}}</p>
+      </li>
+     </div>
+    }
+  </ul>
+} @else {
+  <p>No restaurant selected or data not found.</p>
+}
+@if(openAddToCart){
+<app-add-to-cart [dish]="selectedDish" (close)="onCloseAddToCart()"></app-add-to-cart>
+}

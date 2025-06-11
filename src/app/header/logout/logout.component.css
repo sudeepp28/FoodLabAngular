@@ -1,0 +1,56 @@
+.Backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+}
+
+.container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  z-index: 1001;
+}
+
+.container p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+.container button {
+  padding: 0.6rem 1.2rem;
+  margin: 0 0.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.container button:first-of-type {
+  background-color: transparent;
+  color: #333;
+}
+
+.container button:first-of-type:hover {
+  background-color: #bbb;
+}
+
+.container button:last-of-type {
+  background-color: #ff3c00;
+  color: #fff;
+}
+
+.container button:last-of-type:hover {
+  background-color: #e23300;
+}

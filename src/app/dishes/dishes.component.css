@@ -1,0 +1,89 @@
+/* Dish List Wrapper */
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+div{
+  cursor: pointer;
+}
+
+/* Each Dish Item */
+li {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+li:hover {
+  transform: translateY(-5px);
+}
+
+/* Dish Image */
+li img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Dish Name */
+li p strong {
+  font-size: 18px;
+  color: #333;
+}
+
+/* Price Label */
+.price-badge {
+  display: inline-block;
+  background-color: #ff5722;
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  margin-right: 8px;
+}
+
+/* Rating with Star */
+p i.fa-star {
+  color: #f5a623;
+  margin-left: 6px;
+}
+
+/* Restaurant Info */
+h2, h3 {
+  margin-top: 20px;
+  color: #222;
+}
+
+p {
+  color: #555;
+  font-size: 14px;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 600px) {
+  li {
+    padding: 12px;
+  }
+
+  li img {
+    height: 140px;
+  }
+
+  li p strong {
+    font-size: 16px;
+  }
+
+  .price-badge {
+    font-size: 11px;
+    padding: 3px 6px;
+  }
+}

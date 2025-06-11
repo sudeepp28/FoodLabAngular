@@ -1,0 +1,27 @@
+<app-banner></app-banner>
+
+<div class="restaurant-container">
+  @for (restaurant of restaurants; track restaurant._id) {
+   
+      <div class="restaurant-card">
+         <a [routerLink]="['/restaurant', restaurant.name,restaurant._id]" class="restaurant-card-link">
+        <div>
+          <img [src]="restaurant.imgUrl" alt="{{ restaurant.name }}" />
+  
+        <div class="restaurant-info">
+          <h2>{{ restaurant.name }}</h2>
+          <p class="address">{{ restaurant.address }}</p>
+          <p class="rating">
+            <span>{{ restaurant.rating }}<i class="fa-solid fa-star"></i></span>
+            
+          </p>
+
+         
+        </div>
+        </div>
+</a>
+         <button (click)="toggleSave(restaurant)">       {{ isSaved(restaurant._id) ? '🧡' : '🤍 ' }}
+</button>
+      </div>
+  }
+</div>

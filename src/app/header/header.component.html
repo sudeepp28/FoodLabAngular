@@ -1,0 +1,41 @@
+<header class="header">
+  <div class="logo">
+   <a routerLink="">
+     <img src="assets/Logo.png" alt="App Logo" />
+   </a>
+  </div>
+  <div class="search-bar">
+    
+   <form (ngSubmit)="onSearch()" class="search-form">
+     <input type="text" placeholder="Search for restaurants or dishes..." [(ngModel)]="searchedInput" name="searchedInput"/>
+    <button type="submit"  class="search-icon"><i class="fa fa-search search-icon"></i></button>
+   </form>
+  </div>
+  <div class="menu-wrapper" (click)="isShowDropDown()">
+    <i class="fa-solid fa-bars hamburger-icon"></i>
+    
+    @if(showDropdown){
+      <ul class="dropdown">
+  
+  <a routerLink="/login">      <li *ngIf="!isloggedIn">
+    Login / Signup
+  </li></a>
+  
+  <a (click)="openlogout()"><li *ngIf="isloggedIn">
+    Logout
+  </li></a>
+  <a routerLink="/cart"><li>Cart</li></a>
+  <a routerLink="/help"><li>Help</li></a>
+</ul>
+    }
+     @if(islogout){
+      <app-logout (close)="onclose()"></app-logout>
+     }
+  </div>
+
+ 
+ 
+
+</header>
+
+

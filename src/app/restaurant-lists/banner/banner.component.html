@@ -1,0 +1,12 @@
+<div class="bannerContainer">
+    
+   @for(b of banner; track b){
+     <a [routerLink]="b.link"><div class="banner">
+        
+    <img [src]="b.src" [alt]="b.name">
+    <p>{{b.name}}</p>
+
+    </div>
+    </a>
+   }
+</div>
