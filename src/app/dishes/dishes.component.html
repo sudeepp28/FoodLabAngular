@@ -18,7 +18,11 @@
     }
   </ul>
 } @else {
-  <p>No restaurant selected or data not found.</p>
+  <div class="con">
+    <div class="loader">
+      
+    </div>
+  </div>
 }
 @if(openAddToCart){
 <app-add-to-cart [dish]="selectedDish" (close)="onCloseAddToCart()"></app-add-to-cart>

@@ -1,4 +1,5 @@
-
+@if(top5Restaurant.length>0){
+  
 
 <div class="restaurant-container">
   @for (restaurant of top5Restaurant; track restaurant._id) {
@@ -25,3 +26,13 @@
       </a>
   }
 </div>
+
+}
+
+@else {
+  <div class="con">
+    <div class="loader">
+      
+    </div>
+  </div>
+}

@@ -87,3 +87,27 @@ p {
     padding: 3px 6px;
   }
 }
+
+.con .loader{
+  width: 100px;
+  height: 100px;
+  background:transparent;
+  border-radius: 50%;
+  border: 8px solid #c2bcbc;
+  border-top: 8px solid #222;
+  animation: load 0.7s ease-in-out infinite forwards;
+}
+ .con
+        {
+            min-height: 100vh;
+            min-width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+@keyframes load {
+  100%{
+     rotate:360deg;
+  }
+}

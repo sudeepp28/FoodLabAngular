@@ -1,5 +1,6 @@
 <app-banner></app-banner>
 
+@if(restaurants.length>0){
 <div class="restaurant-container">
   @for (restaurant of restaurants; track restaurant._id) {
    
@@ -25,3 +26,12 @@
       </div>
   }
 </div>
+
+}
+@else {
+   <div class="con">
+    <div class="loader">
+      
+    </div>
+  </div>
+}
