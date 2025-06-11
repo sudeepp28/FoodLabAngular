@@ -4,8 +4,9 @@
   @for (restaurant of restaurants; track restaurant._id) {
    
       <div class="restaurant-card">
-         <a [routerLink]="['/restaurant', restaurant.name,restaurant._id]" class="restaurant-card-link">
+        
         <div>
+           <a [routerLink]="['/restaurant', restaurant.name,restaurant._id]" class="restaurant-card-link">
           <img [src]="restaurant.imgUrl" alt="{{ restaurant.name }}" />
   
         <div class="restaurant-info">
@@ -18,8 +19,9 @@
 
          
         </div>
+        </a>
         </div>
-</a>
+
          <button (click)="toggleSave(restaurant)">       {{ isSaved(restaurant._id) ? '🧡' : '🤍 ' }}
 </button>
       </div>
