@@ -1,4 +1,5 @@
-<h2>Register</h2>
+<div class="con">
+  <h2>Register</h2>
 <form [formGroup]="registerForm" (ngSubmit)="register()">
   <label>Name:</label>
   <input type="text" formControlName="name" />
@@ -12,3 +13,4 @@
   <button type="submit">Register</button>
   <p>Already a user? <a routerLink="/login">Login</a></p>
 </form>
+</div>
