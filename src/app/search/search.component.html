@@ -1,8 +1,8 @@
 @if(SearchedRestaurants.length>0){
-    <div class="orders-container">
+    <div class="restaurant-container">
   @for (restaurant of SearchedRestaurants; track restaurant._id) {
     <a [routerLink]="['/restaurant', restaurant.name,restaurant._id]" class="restaurant-card-link">
-    <div class="order-card">
+    <div class="restaurant-card">
     
       
         <div class="img">
