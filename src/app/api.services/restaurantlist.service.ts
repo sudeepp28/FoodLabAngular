@@ -11,7 +11,7 @@ export class RestaurantlistService{
 constructor(private http:HttpClient){
 
 }
-url="https://node-js-wnil.onrender.com"
+url="http://localhost:5000"
 getRestaurants():Observable<restaurants[]>{
   
     return this.http.get<restaurants[]>(this.url)

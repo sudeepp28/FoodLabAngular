@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private baseUrl = 'https://node-js-wnil.onrender.com'; 
+  private baseUrl = 'http://localhost:5000'; 
 
   constructor(private http: HttpClient) {}
 
@@ -26,6 +26,9 @@ export class AuthService {
 
   getToken() {
     return localStorage.getItem('token');
+  }
+  getUSer(){
+    return localStorage.getItem('user')
   }
 
   isLoggedIn(): boolean {

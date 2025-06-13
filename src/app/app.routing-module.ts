@@ -9,6 +9,8 @@ import { TopRestaurantsComponent } from './top-restaurants/top-restaurants.compo
 import { SearchComponent } from './search/search.component';
 import { LoginComponent } from './author/login/login.component';
 import { RegisterComponent } from './author/register/register.component';
+import { HelpComponent } from './help/help.component';
+import { AuthGuard } from './core/auth-gaurd';
 
 
 
@@ -16,15 +18,16 @@ import { RegisterComponent } from './author/register/register.component';
 const routes: Routes = [
   { path: '', component: RestaurantListsComponent },
   {path:'restaurant/:name/:id',component:DishesComponent},
-  {path:'cart',component:CartComponent},
-  {path:'order', component:OrdersComponent},
+  {path:'cart',canActivate:[AuthGuard],component:CartComponent},
+  {path:'order',canActivate:[AuthGuard], component:OrdersComponent},
   {path:'saved',component:SavedRestaurantsComponent},{
     path:'topRestaurants',component:TopRestaurantsComponent
   },{
     path:'search',component:SearchComponent
   },
   {path:'login',component:LoginComponent},
-  {path:'register',component:RegisterComponent}
+  {path:'register',component:RegisterComponent},
+  {path:'help',component:HelpComponent}
    
   // <-- new route
 ];

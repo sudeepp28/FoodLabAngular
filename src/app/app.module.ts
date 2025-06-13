@@ -19,8 +19,9 @@ import { SearchComponent } from "./search/search.component";
 import { LoginComponent } from "./author/login/login.component";
 import { RegisterComponent } from "./author/register/register.component";
 import { LogoutComponent } from "./header/logout/logout.component";
-import { tokenHttpInterceptor } from "./core/token-http-interceptor";
+
 import { FooterComponent } from "./footer/footer.component";
+import { HelpComponent } from "./help/help.component";
 
 
 
@@ -30,7 +31,7 @@ import { FooterComponent } from "./footer/footer.component";
     declarations:[AppComponent,
          RestaurantListsComponent,DishesComponent,HeaderComponent
          ,AddToCartComponent,CartComponent,OrderCartComponent,BannerComponent,OrdersComponent,LogoutComponent
-         ,SavedRestaurantsComponent, TopRestaurantsComponent,SearchComponent,LoginComponent,RegisterComponent,FooterComponent
+         ,SavedRestaurantsComponent, TopRestaurantsComponent,SearchComponent,LoginComponent,RegisterComponent,FooterComponent,HelpComponent
        ],
     bootstrap:[AppComponent],
     imports: [FormsModule,
