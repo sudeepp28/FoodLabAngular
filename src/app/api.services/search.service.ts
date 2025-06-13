@@ -8,7 +8,7 @@ import { restaurants } from "../model";
 export class SearchService{
 
     constructor(private http:HttpClient){}
-     apiUrl="mongodb+srv://sudeeppalai:IztDxuvX4DwRPLdT@foolab.sjwrvjy.mongodb.net/searches"
+     apiUrl="https://node-js-wnil.onrender.com/searches"
 
   private searchedTerm=new BehaviorSubject<any>('');
   currentTerm=this.searchedTerm.asObservable()

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private baseUrl = 'mongodb+srv://sudeeppalai:IztDxuvX4DwRPLdT@foolab.sjwrvjy.mongodb.net/'; 
+  private baseUrl = 'https://node-js-wnil.onrender.com'; 
 
   constructor(private http: HttpClient) {}
 

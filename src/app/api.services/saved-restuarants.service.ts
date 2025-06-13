@@ -12,7 +12,7 @@ export class SavedRestaurantsService{
     return new HttpHeaders({ Authorization: token || '' });
   }
 
-    apiUrl="mongodb+srv://sudeeppalai:IztDxuvX4DwRPLdT@foolab.sjwrvjy.mongodb.net/saved"
+    apiUrl="https://node-js-wnil.onrender.com/saved"
  constructor(private http: HttpClient) {}
 
  private savedRestaurants$ = new BehaviorSubject<any[]>([]);
