@@ -11,7 +11,7 @@ export class RestaurantlistService{
 constructor(private http:HttpClient){
 
 }
-url="http://localhost:5000"
+url="mongodb+srv://sudeeppalai:IztDxuvX4DwRPLdT@foolab.sjwrvjy.mongodb.net/"
 getRestaurants():Observable<restaurants[]>{
   
     return this.http.get<restaurants[]>(this.url)

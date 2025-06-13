@@ -12,7 +12,7 @@ export class SavedRestaurantsService{
     return new HttpHeaders({ Authorization: token || '' });
   }
 
-    apiUrl="http://localhost:5000/saved"
+    apiUrl="mongodb+srv://sudeeppalai:IztDxuvX4DwRPLdT@foolab.sjwrvjy.mongodb.net/saved"
  constructor(private http: HttpClient) {}
 
  private savedRestaurants$ = new BehaviorSubject<any[]>([]);

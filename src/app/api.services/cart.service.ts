@@ -12,7 +12,7 @@ export class CartService{
     return new HttpHeaders({ Authorization: token || '' });
   }
 
-    url="http://localhost:5000/cart"
+    url="mongodb+srv://sudeeppalai:IztDxuvX4DwRPLdT@foolab.sjwrvjy.mongodb.net/cart"
 
     getCart():Observable<any>{
         return this.http.get<any>(this.url,{

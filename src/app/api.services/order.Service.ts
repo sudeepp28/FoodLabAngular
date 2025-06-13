@@ -11,7 +11,7 @@ export class OrderService{
     const token = localStorage.getItem('token');
     return new HttpHeaders({ Authorization: token || '' });
   }
-url="http://localhost:5000/order"
+url="mongodb+srv://sudeeppalai:IztDxuvX4DwRPLdT@foolab.sjwrvjy.mongodb.net/order"
     getOrders():Observable<any>{
         return this.http.get<any>(this.url,{
       headers: this.getAuthHeaders(),
