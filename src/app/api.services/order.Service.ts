@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 
@@ -6,12 +6,21 @@ import { Observable } from "rxjs";
 
 export class OrderService{
     constructor(private http:HttpClient){}
+
+    private getAuthHeaders(): HttpHeaders {
+    const token = localStorage.getItem('token');
+    return new HttpHeaders({ Authorization: token || '' });
+  }
 url="https://node-js-wnil.onrender.com/order"
     getOrders():Observable<any>{
-        return this.http.get<any>(this.url);
+        return this.http.get<any>(this.url,{
+      headers: this.getAuthHeaders(),
+    });
     }
 
     addInOrders(order:any):Observable<any>{
-        return this.http.post<any>(this.url,order)
+        return this.http.post<any>(this.url,order,{
+      headers: this.getAuthHeaders(),
+    })
     }
 }

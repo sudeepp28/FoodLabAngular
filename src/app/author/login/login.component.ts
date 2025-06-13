@@ -29,7 +29,9 @@ loginForm: FormGroup;
 
     this.auth.login(this.loginForm.value).subscribe({
       next: (res:any) => {
+        console.log(res)
         this.auth.storeToken(res.token);
+        this.auth.storeUser(res.user)
         this.router.navigate(['/']); 
         alert('LoggedIn')
       },

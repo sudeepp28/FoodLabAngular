@@ -17,6 +17,11 @@ export class AuthService {
 
   storeToken(token: string) {
     localStorage.setItem('token', token);
+    
+    // console.log(token)
+  }
+  storeUser(user:any){
+    localStorage.setItem('user',JSON.stringify(user))
   }
 
   getToken() {
@@ -29,5 +34,6 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
   }
 }

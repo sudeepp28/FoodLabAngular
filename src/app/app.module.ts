@@ -5,7 +5,7 @@ import {  FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CommonModule, DatePipe } from "@angular/common";
 import { AppRoutingModule } from "./app.routing-module";
 import { RestaurantListsComponent } from "./restaurant-lists/restaurant-lists.component";
-import { provideHttpClient } from "@angular/common/http";
+import { provideHttpClient, withInterceptors } from "@angular/common/http";
 import { DishesComponent } from "./dishes/dishes.component";
 import { HeaderComponent } from "./header/header.component";
 import { AddToCartComponent } from "./add-to-cart/add-to-cart.component";
@@ -19,6 +19,8 @@ import { SearchComponent } from "./search/search.component";
 import { LoginComponent } from "./author/login/login.component";
 import { RegisterComponent } from "./author/register/register.component";
 import { LogoutComponent } from "./header/logout/logout.component";
+import { tokenHttpInterceptor } from "./core/token-http-interceptor";
+import { FooterComponent } from "./footer/footer.component";
 
 
 
@@ -28,7 +30,7 @@ import { LogoutComponent } from "./header/logout/logout.component";
     declarations:[AppComponent,
          RestaurantListsComponent,DishesComponent,HeaderComponent
          ,AddToCartComponent,CartComponent,OrderCartComponent,BannerComponent,OrdersComponent,LogoutComponent
-         ,SavedRestaurantsComponent, TopRestaurantsComponent,SearchComponent,LoginComponent,RegisterComponent
+         ,SavedRestaurantsComponent, TopRestaurantsComponent,SearchComponent,LoginComponent,RegisterComponent,FooterComponent
        ],
     bootstrap:[AppComponent],
     imports: [FormsModule,

@@ -10,7 +10,7 @@
   <label>Password:</label>
   <input type="password" formControlName="password" />
 
-  <button type="submit">Register</button>
+  <button type="submit" [disabled]="registerForm.invalid">Register</button>
   <p>Already a user? <a routerLink="/login">Login</a></p>
 </form>
 </div>

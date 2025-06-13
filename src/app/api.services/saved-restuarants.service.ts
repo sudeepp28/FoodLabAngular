@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
 
@@ -7,7 +7,10 @@ import { BehaviorSubject, Observable } from "rxjs";
 
 export class SavedRestaurantsService{
 
-   
+    private getAuthHeaders(): HttpHeaders {
+    const token = localStorage.getItem('token');
+    return new HttpHeaders({ Authorization: token || '' });
+  }
 
     apiUrl="https://node-js-wnil.onrender.com/saved"
  constructor(private http: HttpClient) {}
