@@ -5,7 +5,7 @@
   @for (restaurant of savedRestaurants; track restaurant._id) {
    
       <div class="restaurant-card">
-         <a [routerLink]="['/restaurant', restaurant.name,restaurant._id]" class="restaurant-card-link">
+         <a [routerLink]="['/restaurant', restaurant.name,restaurant.restaurantId]" class="restaurant-card-link">
         <div>
           <img [src]="restaurant.imgUrl" alt="{{ restaurant.name }}" />
   

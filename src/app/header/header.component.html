@@ -21,15 +21,23 @@
     Login / Signup
   </li></a>
   
-  <a (click)="openlogout()"><li *ngIf="isloggedIn">
+  <a (click)="openSidebar()"><li *ngIf="isloggedIn">
     {{user.name}}
   </li></a>
+  
   <a routerLink="/cart"><li>Cart</li></a>
   <a routerLink="/help"><li>Help</li></a>
+   <a (click)="openlogout()" style="color: tomato;"><li *ngIf="isloggedIn">
+   LOGOUT
+  </li></a>
 </ul>
     }
      @if(islogout){
-      <app-logout (close)="onclose()"></app-logout>
+      <app-logout (close)="oncloseLogout()"></app-logout>
+     }
+
+     @if(isSideBar){
+      <app-sidebar (close)="oncloseLogout()"></app-sidebar>
      }
   </div>
 

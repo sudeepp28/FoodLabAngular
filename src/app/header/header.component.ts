@@ -15,6 +15,7 @@ showDropdown = false;
 isloggedIn=false;
 searchedInput=""
 islogout=false
+isSideBar=false
 isShowDropDown(){
   this.showDropdown=!this.showDropdown
   this.isloggedIn=this.authService.isLoggedIn()
@@ -37,8 +38,17 @@ this.user.name= this.user.name.charAt(0).toUpperCase()+this.user.name.slice(1).t
     this.islogout=true
     this.showDropdown=false
   }
-  onclose(){
+  openSidebar(){
+    this.isSideBar=true
+     this.showDropdown=false
+  }
+  oncloseLogout(){
     this.islogout=false
+    this.onCloseSideBar()
+    
+  }
+  onCloseSideBar(){
+    this.isSideBar=false
   }
   
 }

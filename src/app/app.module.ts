@@ -22,6 +22,7 @@ import { LogoutComponent } from "./header/logout/logout.component";
 
 import { FooterComponent } from "./footer/footer.component";
 import { HelpComponent } from "./help/help.component";
+import { SidebarComponent } from "./header/sidebar/sidebar.component";
 
 
 
@@ -31,7 +32,7 @@ import { HelpComponent } from "./help/help.component";
     declarations:[AppComponent,
          RestaurantListsComponent,DishesComponent,HeaderComponent
          ,AddToCartComponent,CartComponent,OrderCartComponent,BannerComponent,OrdersComponent,LogoutComponent
-         ,SavedRestaurantsComponent, TopRestaurantsComponent,SearchComponent,LoginComponent,RegisterComponent,FooterComponent,HelpComponent
+         ,SavedRestaurantsComponent, TopRestaurantsComponent,SearchComponent,LoginComponent,RegisterComponent,FooterComponent,HelpComponent,SidebarComponent
        ],
     bootstrap:[AppComponent],
     imports: [FormsModule,

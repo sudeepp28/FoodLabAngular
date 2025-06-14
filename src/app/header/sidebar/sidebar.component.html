@@ -1,0 +1,21 @@
+<div class="Backdrop" (click)="onClose()"></div>
+<div class="profile-container">
+  <div class="profile-header">
+    <img 
+      [src]="user.image || 'assets/default-user.jpg'" 
+      alt="User Image"
+      class="user-img"
+       />
+
+    <h2 >{{ user.name }}</h2>
+  </div>
+
+  <div class="profile-actions">
+    <button (click)="goToRoute('saved')">Saved Restaurants</button>
+    <button (click)="goToRoute('order')">My Orders</button>
+    <button (click)="Openlogout()">Logout</button>
+  </div>
+</div>
+@if(isLogout){
+    <app-logout (close)="onClose()"></app-logout>
+}
