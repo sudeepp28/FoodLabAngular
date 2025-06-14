@@ -1,51 +1,43 @@
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { BehaviorSubject, Observable } from "rxjs";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable, BehaviorSubject } from 'rxjs';
 
-@Injectable({providedIn:'root'})
+@Injectable({ providedIn: 'root' })
+export class SavedRestaurantsService {
+  private apiUrl = 'https://node-js-wnil.onrender.com/saved'; // Adjust if deployed
 
+  private savedRestaurants$ = new BehaviorSubject<any[]>([]);
 
-export class SavedRestaurantsService{
+  constructor(private http: HttpClient) {}
 
-    private getAuthHeaders(): HttpHeaders {
-    const token = localStorage.getItem('token');
-    return new HttpHeaders({ Authorization: token || '' });
+  getToken(): string | null {
+    return localStorage.getItem('token');
   }
 
-    apiUrl="https://node-js-wnil.onrender.com/saved"
- constructor(private http: HttpClient) {}
+  getAuthHeaders() {
+    return {
+      headers: new HttpHeaders({
+        Authorization: this.getToken() || ''
+      })
+    };
+  }
 
- private savedRestaurants$ = new BehaviorSubject<any[]>([]);
-
-  
-
-  loadSavedRestaurants() {
-    this.http.get<any[]>(this.apiUrl).subscribe(data => {
-      this.savedRestaurants$.next(data);
-    });
+  fetchSavedRestaurants(): void {
+    this.http.get<any[]>(this.apiUrl, this.getAuthHeaders()).subscribe(
+      (data) => this.savedRestaurants$.next(data),
+      (error) => console.error('Error fetching saved restaurants:', error)
+    );
   }
 
   getSavedRestaurants(): Observable<any[]> {
     return this.savedRestaurants$.asObservable();
   }
 
-  isSaved(id: string): boolean {
-    return this.savedRestaurants$.value.some(r => r._id === id);
+  saveRestaurant(item: any): Observable<any> {
+    return this.http.post(this.apiUrl, item, this.getAuthHeaders());
   }
 
-  saveRestaurant(restaurant: any): Observable<any> {
-    return this.http.post(this.apiUrl, restaurant);
-  }
-
-  unsaveRestaurant(id: string): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/${id}`);
-  }
-
-  toggleSave(restaurant: any) {
-    if (this.isSaved(restaurant._id)) {
-      this.unsaveRestaurant(restaurant._id).subscribe(() => this.loadSavedRestaurants());
-    } else {
-      this.saveRestaurant(restaurant).subscribe(() => this.loadSavedRestaurants());
-    }
+  removeSavedRestaurant(restaurantId: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${restaurantId}`, this.getAuthHeaders());
   }
 }

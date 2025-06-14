@@ -1,31 +1,39 @@
+
+
 @if(savedRestaurants.length>0){
-    <div class="restaurant-container">
+<div class="restaurant-container">
   @for (restaurant of savedRestaurants; track restaurant._id) {
-    <a [routerLink]="['/restaurant', restaurant.name,restaurant._id]" class="restaurant-card-link">
-    <div class="restaurant-card">
-    
-      
-        <img [src]="restaurant.imgUrl" alt="{{ restaurant.name }}" />
-        
+   
+      <div class="restaurant-card">
+         <a [routerLink]="['/restaurant', restaurant.name,restaurant._id]" class="restaurant-card-link">
+        <div>
+          <img [src]="restaurant.imgUrl" alt="{{ restaurant.name }}" />
+  
         <div class="restaurant-info">
           <h2>{{ restaurant.name }}</h2>
           <p class="address">{{ restaurant.address }}</p>
           <p class="rating">
             <span>{{ restaurant.rating }}<i class="fa-solid fa-star"></i></span>
+            
           </p>
 
-           
+         
         </div>
+        </div>
+</a>
+       
+ 
+      <button (click)="remove(restaurant.restaurantId)">🧡</button>
+
+      
       </div>
-      </a>
-    
   }
 </div>
+
 }
 @else {
-    <h2>No Saved Restaurants Yet</h2>
+  <h3>No Saved Restaurants</h3>
 }
-
 <footer>
   <app-footer></app-footer>
 </footer>

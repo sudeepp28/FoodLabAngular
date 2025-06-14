@@ -21,8 +21,11 @@
         </div>
         </div>
 </a>
-         <button (click)="toggleSave(restaurant)">       {{ isSaved(restaurant._id) ? '🧡' : '🤍 ' }}
-</button>
+       
+ <button *ngIf="!isSaved(restaurant._id)" (click)="save(restaurant)">🤍</button>
+      <button *ngIf="isSaved(restaurant._id)" (click)="remove(restaurant._id)">🧡</button>
+
+      
       </div>
   }
 </div>
