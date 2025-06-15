@@ -47,7 +47,7 @@ export class UpdateProfileComponent implements OnInit{
    formData.append('name',this.name);
    formData.append('email',this.email)
 
-    this.http.post<any>('http://localhost:5000/upload', formData)
+    this.http.post<any>('https://node-js-wnil.onrender.com/upload', formData)
       .subscribe({
         next: (res) => {
           this.message = 'Profile uploaded successfully';
@@ -67,7 +67,7 @@ export class UpdateProfileComponent implements OnInit{
     const userId = user._id;
     
 
-    this.http.get<any[]>('http://localhost:5000/profile').subscribe((data)=>{
+    this.http.get<any[]>('https://node-js-wnil.onrender.com/profile').subscribe((data)=>{
       const allProfiles=data
       console.log(allProfiles)
 
