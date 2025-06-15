@@ -13,9 +13,8 @@ export class LogoutComponent {
   @Output() close=new EventEmitter()
   
 
-  constructor(private authService:AuthService,private router:Router ,private http:HttpClient){}
+  constructor(private authService:AuthService,private router:Router){}
   user:any | null
-  userProfile:any
 ngOnInit(): void {
   const storedUser:any=localStorage.getItem('user')
 this.user=JSON.parse(storedUser)
@@ -27,20 +26,6 @@ this.iscloseLogout()
 this.router.navigate(['/'])
 
 
-  }
-  getprofileData(){
-
-     const user = JSON.parse(localStorage.getItem('user') || '{}');
-    const userId = user._id;
-   
-
-    this.http.get<any[]>('https://node-js-wnil.onrender.com/profile').subscribe((data)=>{
-      const allProfiles=data
-      console.log(allProfiles)
-
-      this.userProfile=data.find(d=>d.userId===userId)
-      this.userProfile.name= this.userProfile.name.charAt(0).toUpperCase()+this.user.name.slice(1).toLowerCase()
-    })
   }
   iscloseLogout(){
     this.close.emit()
