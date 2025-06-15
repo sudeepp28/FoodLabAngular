@@ -1,14 +1,17 @@
 <div class="Backdrop" (click)="onClose()"></div>
 <div class="profile-container">
-  <div class="profile-header">
+
+   <div class="profile-header">
     <img 
-      [src]="user.image || 'assets/default-user.jpg'" 
+      [src]="userProfile.url || 'assets/default-user.jpg'" 
       alt="User Image"
-      class="user-img"
+      class="user-img cursor"
+      (click)="openUserProfile()"
        />
 
-    <h2 >{{ user.name }}</h2>
+    <h2 (click)="openUserProfile()" class="cursor">{{ userProfile.name }}</h2>
   </div>
+ 
 
   <div class="profile-actions">
     <button (click)="goToRoute('saved')">Saved Restaurants</button>

@@ -11,6 +11,8 @@ import { LoginComponent } from './author/login/login.component';
 import { RegisterComponent } from './author/register/register.component';
 import { HelpComponent } from './help/help.component';
 import { AuthGuard } from './core/auth-gaurd';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 
 
@@ -27,7 +29,11 @@ const routes: Routes = [
   },
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
-  {path:'help',component:HelpComponent}
+  {path:'help',component:HelpComponent},{
+    path:'user',component:UserProfileComponent
+  },{
+    path:'updateProfile',component:UpdateProfileComponent
+  }
    
   // <-- new route
 ];

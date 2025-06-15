@@ -33,6 +33,9 @@
     padding: 16px;      /* Adjust padding */
   }
 }
+.cursor{
+  cursor: pointer;
+}
 
 /* Optional: Tiny devices */
 @media (max-width: 400px) {

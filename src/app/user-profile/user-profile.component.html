@@ -1,0 +1,13 @@
+@if(userProfile){
+
+    <div class="profile-container" >
+  <img [src]="userProfile.url || 'assets/default-user.jpg'" [alt]="userProfile.name">
+  <h1>{{ userProfile.name }}</h1>
+  <h3>{{ userProfile.email }}</h3>
+  <a routerLink="/updateProfile">
+    <button>Update Profile</button>
+  </a>
+</div>
+}
+
+

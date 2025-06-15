@@ -23,6 +23,8 @@ import { LogoutComponent } from "./header/logout/logout.component";
 import { FooterComponent } from "./footer/footer.component";
 import { HelpComponent } from "./help/help.component";
 import { SidebarComponent } from "./header/sidebar/sidebar.component";
+import { UserProfileComponent } from "./user-profile/user-profile.component";
+import { UpdateProfileComponent } from "./update-profile/update-profile.component";
 
 
 
@@ -31,7 +33,7 @@ import { SidebarComponent } from "./header/sidebar/sidebar.component";
 @NgModule({
     declarations:[AppComponent,
          RestaurantListsComponent,DishesComponent,HeaderComponent
-         ,AddToCartComponent,CartComponent,OrderCartComponent,BannerComponent,OrdersComponent,LogoutComponent
+         ,AddToCartComponent,CartComponent,OrderCartComponent,BannerComponent,OrdersComponent,LogoutComponent,UserProfileComponent,UpdateProfileComponent
          ,SavedRestaurantsComponent, TopRestaurantsComponent,SearchComponent,LoginComponent,RegisterComponent,FooterComponent,HelpComponent,SidebarComponent
        ],
     bootstrap:[AppComponent],

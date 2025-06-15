@@ -1,0 +1,20 @@
+<div class="upload-container">
+
+
+  <h2>Upload Profile</h2>
+ @if(userProfile){
+    
+    <img [src]="userProfile.url || 'assets/default-user.jpg'" alt="Profile Image" width="200" />
+
+ }
+  <input type="file" (change)="onFileSelected($event)" />
+ <p><strong>Name : </strong> <input type="text" name="name" [(ngModel)]="name"></p>
+ <p><strong>Email : </strong> <input type="text" name="email"[(ngModel)]="email"></p>
+  <button (click)="uploadProfile()">Upload</button>
+
+  <p>{{ message }}</p>
+
+ 
+</div>
+
+
