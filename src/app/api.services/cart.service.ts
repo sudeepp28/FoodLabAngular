@@ -12,7 +12,7 @@ export class CartService{
     return new HttpHeaders({ Authorization: token || '' });
   }
 
-    url="https://node-js-wnil.onrender.com/cart"
+    url="https://foodlabbackend.onrender.com/cart"
 
     getCart():Observable<any>{
         return this.http.get<any>(this.url,{

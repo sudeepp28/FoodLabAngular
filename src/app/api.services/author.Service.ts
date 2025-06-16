@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private baseUrl = 'https://node-js-wnil.onrender.com'; 
+  private baseUrl = 'https://foodlabbackend.onrender.com'; 
 
   constructor(private http: HttpClient) {}
 

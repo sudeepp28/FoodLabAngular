@@ -7,7 +7,7 @@ import { Observable } from "rxjs";
 export class ProfileService{
     constructor(private http:HttpClient){}
 
-    url="https://node-js-wnil.onrender.com"
+    url="https://foodlabbackend.onrender.com"
     getprofileData():Observable<any>{
 return this.http.get<any[]>(`${this.url}/profile`)
     }
