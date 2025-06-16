@@ -2,7 +2,9 @@
 
     <div class="profile-container" >
   <img [src]="userProfile.url || 'assets/default-user.jpg'" [alt]="userProfile.name">
-  <button (click)="deleteProfilePhoto()">Delete profileImage</button>
+  @if(userProfile.url){
+   <button (click)="deleteProfilePhoto()">Delete profileImage</button>
+ }
   <h1>{{ userProfile.name }}</h1>
   <h3>{{ userProfile.email }}</h3>
   <a routerLink="/updateProfile">
