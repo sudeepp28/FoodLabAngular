@@ -62,7 +62,7 @@ this.getprofileData()
 
     this.http.get<any[]>('https://node-js-wnil.onrender.com/profile').subscribe((data)=>{
       const allProfiles=data
-     
+      console.log(allProfiles)
 
       this.userProfile=data.find(d=>d.userId===userId)
       this.userProfile.name=this.userProfile.name.charAt(0).toUpperCase()+this.user.name.slice(1).toLowerCase()

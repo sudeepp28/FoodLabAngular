@@ -1,19 +1,20 @@
 <div class="upload-container">
+
+
   <h2>Upload Profile</h2>
-
-  <div *ngIf="userProfile && !loading">
+ @if(userProfile){
+    
     <img [src]="userProfile.url || 'assets/default-user.jpg'" alt="Profile Image" width="200" />
-  </div>
 
+ }
   <input type="file" (change)="onFileSelected($event)" />
-  <p><strong>Name: </strong> <input type="text" name="name" [(ngModel)]="name"></p>
-  <p><strong>Email: </strong> <input type="text" name="email" [(ngModel)]="email"></p>
-  <button (click)="uploadProfile()">Update</button>
+ <p><strong>Name : </strong> <input type="text" name="name" [(ngModel)]="name"></p>
+ <p><strong>Email : </strong> <input type="text" name="email"[(ngModel)]="email"></p>
+  <button (click)="uploadProfile()">Upload</button>
 
-  <p *ngIf="message">{{ message }}</p>
+  <p>{{ message }}</p>
 
-  <div *ngIf="loading" class="spinner">
-    <p>Uploading...</p>
-    <div class="loader"></div>
-  </div>
+ 
 </div>
+
+

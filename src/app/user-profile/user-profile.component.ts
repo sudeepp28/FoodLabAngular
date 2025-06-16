@@ -24,18 +24,9 @@ getprofileData(){
 
     this.http.get<any[]>('https://node-js-wnil.onrender.com/profile').subscribe((data)=>{
       const allProfiles=data
-     
+      console.log(allProfiles)
 
       this.userProfile=data.find(d=>d.userId===userId)
-    })
-  }
-  deleteProfilePhoto(){
-    const user = JSON.parse(localStorage.getItem('user') || '{}');
-    const userId = user._id;
-
-    this.http.delete(`https://node-js-wnil.onrender.com/profile/${userId}`).subscribe((data)=>{
-      this.getprofileData()
-      console.log(data)
     })
   }
 }
