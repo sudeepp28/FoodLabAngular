@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { ProfileService } from '../api.services/profile.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -10,7 +11,7 @@ import { Component } from '@angular/core';
 export class UserProfileComponent {
 user:any | null
 userProfile:any
-constructor(private http:HttpClient){}
+constructor( private profileService:ProfileService){}
 
 ngOnInit(): void {
  
@@ -21,12 +22,21 @@ getprofileData(){
      const user = JSON.parse(localStorage.getItem('user') || '{}');
     const userId = user._id;
    
-
-    this.http.get<any[]>('https://node-js-wnil.onrender.com/profile').subscribe((data)=>{
+this.profileService.getprofileData()
+    .subscribe((data)=>{
       const allProfiles=data
-      console.log(allProfiles)
+     
 
-      this.userProfile=data.find(d=>d.userId===userId)
+      this.userProfile=data.find((d:any)=>d.userId===userId)
+    })
+  }
+  deleteProfilePhoto(){
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+    const userId = user._id;
+
+   this.profileService.deleteData(userId).subscribe((data)=>{
+      this.getprofileData()
+      console.log(data)
     })
   }
 }

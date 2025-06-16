@@ -1,55 +1,97 @@
+/* Container with background image */
 .upload-container {
-  max-width: 400px;
-  margin: 80px auto;
-  padding: 30px;
-  background-color: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to bottom right, #f0f4ff, #ffffff);
+  min-height: 100vh;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.6), 
+      rgba(0, 0, 0, 0.6)
+    ),
+    url('https://images.unsplash.com/photo-1528715471579-d1a0a4840a1c?auto=format&fit=crop&w=1350&q=80')
+    no-repeat center center;
+  background-size: cover;
+
+  color: #fff;
+  border-radius: 8px;
 }
 
+/* Headings */
 .upload-container h2 {
   margin-bottom: 20px;
-  color: #2c3e50;
-  font-size: 24px;
+  font-size: 2rem;
 }
 
-.upload-container input[type="file"] {
-  margin: 15px 0;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+/* Profile Image */
+.upload-container img {
+  border-radius: 50%;
+  margin-bottom: 20px;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 3px solid #fff;
 }
 
-.upload-container button {
-  padding: 10px 25px;
-  background-color: #4CAF50;
-  color: #fff;
-  font-size: 16px;
+/* Input fields */
+.upload-container input[type="file"],
+.upload-container input[type="text"] {
+  margin: 10px 0;
+  padding: 10px;
+  width: 300px;
+  border-radius: 6px;
   border: none;
-  border-radius: 25px;
+  outline: none;
+  font-size: 20px;
+}
+
+/* Button */
+.upload-container button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #ff7043;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .upload-container button:hover {
-  background-color: #43a047;
+  background-color: #ff5722;
 }
 
-.upload-container p {
-  margin-top: 15px;
-  font-weight: 500;
-  color: #555;
-}
-
-.upload-container img {
+/* Spinner area */
+.spinner {
   margin-top: 20px;
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Spinner animation */
+.loader {
+  margin-top: 10px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #ff7043;
   border-radius: 50%;
-  border: 4px solid #4CAF50;
-  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+  width: 40px;
+  height: 40px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Message */
+.upload-container p {
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: 1rem;
 }

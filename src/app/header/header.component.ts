@@ -3,6 +3,7 @@ import { SearchService } from '../api.services/search.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../api.services/author.Service';
 import { HttpClient } from '@angular/common/http';
+import { ProfileService } from '../api.services/profile.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent implements OnInit {
-  constructor( private searchService:SearchService , private router:Router, private authService:AuthService, private http:HttpClient){}
+  constructor( private searchService:SearchService , private router:Router, private authService:AuthService,private profileservice:ProfileService){}
 showDropdown = false;
 isloggedIn=false;
 searchedInput=""
@@ -59,12 +60,11 @@ this.getprofileData()
      const user = JSON.parse(localStorage.getItem('user') || '{}');
     const userId = user._id;
     
-
-    this.http.get<any[]>('https://node-js-wnil.onrender.com/profile').subscribe((data)=>{
+this.profileservice.getprofileData().subscribe((data)=>{
       const allProfiles=data
-      console.log(allProfiles)
+     
 
-      this.userProfile=data.find(d=>d.userId===userId)
+      this.userProfile=data.find((d:any)=>d.userId===userId)
       this.userProfile.name=this.userProfile.name.charAt(0).toUpperCase()+this.user.name.slice(1).toLowerCase()
      
     })

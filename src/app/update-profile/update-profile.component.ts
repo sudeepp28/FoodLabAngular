@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ProfileService } from '../api.services/profile.service';
 
 @Component({
   selector: 'app-update-profile',
@@ -14,7 +15,8 @@ export class UpdateProfileComponent implements OnInit{
   name="";
   email='';
   userProfile:any 
-  constructor(private http: HttpClient) {}
+  loading=false
+  constructor( private profileService:ProfileService) {}
 
   ngOnInit(): void {
     this.getprofileData()
@@ -47,14 +49,17 @@ export class UpdateProfileComponent implements OnInit{
    formData.append('name',this.name);
    formData.append('email',this.email)
 
-    this.http.post<any>('https://node-js-wnil.onrender.com/upload', formData)
+   this.loading=true
+    this.profileService.updateProfile(formData)
       .subscribe({
         next: (res) => {
+          this.loading=false
           this.message = 'Profile uploaded successfully';
           this.imageUrl = res.profile.imageUrl;
          this.getprofileData()
         },
         error: (err) => {
+           this.loading=false
           console.error(err);
           this.message = 'Upload failed';
         }
@@ -67,11 +72,11 @@ export class UpdateProfileComponent implements OnInit{
     const userId = user._id;
     
 
-    this.http.get<any[]>('https://node-js-wnil.onrender.com/profile').subscribe((data)=>{
-      const allProfiles=data
-      console.log(allProfiles)
+    this.profileService.getprofileData().subscribe((data)=>{
+     
+     
 
-      this.userProfile=data.find(d=>d.userId===userId)
+      this.userProfile=data.find((d:any)=>d.userId===userId)
       this.email=this.userProfile.email
       this.name=this.userProfile.name
     })

@@ -4,7 +4,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class SavedRestaurantsService {
-  private apiUrl = 'https://node-js-wnil.onrender.com/saved'; // Adjust if deployed
+  private apiUrl = 'https://node-js-wnil.onrender.com'; // Adjust if deployed
 
   private savedRestaurants$ = new BehaviorSubject<any[]>([]);
 
