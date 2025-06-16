@@ -14,6 +14,7 @@ export class UpdateProfileComponent implements OnInit{
   name="";
   email='';
   userProfile:any 
+  loading=false
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
@@ -47,14 +48,17 @@ export class UpdateProfileComponent implements OnInit{
    formData.append('name',this.name);
    formData.append('email',this.email)
 
-    this.http.post<any>('https://node-js-wnil.onrender.com/upload', formData)
+   this.loading=true
+    this.http.post<any>('http://localhost:5000/upload', formData)
       .subscribe({
         next: (res) => {
+          this.loading=false
           this.message = 'Profile uploaded successfully';
           this.imageUrl = res.profile.imageUrl;
          this.getprofileData()
         },
         error: (err) => {
+           this.loading=false
           console.error(err);
           this.message = 'Upload failed';
         }
@@ -67,9 +71,9 @@ export class UpdateProfileComponent implements OnInit{
     const userId = user._id;
     
 
-    this.http.get<any[]>('https://node-js-wnil.onrender.com/profile').subscribe((data)=>{
+    this.http.get<any[]>('http://localhost:5000/profile').subscribe((data)=>{
       const allProfiles=data
-      console.log(allProfiles)
+     
 
       this.userProfile=data.find(d=>d.userId===userId)
       this.email=this.userProfile.email
