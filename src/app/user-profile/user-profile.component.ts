@@ -22,7 +22,7 @@ getprofileData(){
     const userId = user._id;
    
 
-    this.http.get<any[]>('http://localhost:5000/profile').subscribe((data)=>{
+    this.http.get<any[]>('https://node-js-wnil.onrender.com/profile').subscribe((data)=>{
       const allProfiles=data
      
 
@@ -33,7 +33,7 @@ getprofileData(){
     const user = JSON.parse(localStorage.getItem('user') || '{}');
     const userId = user._id;
 
-    this.http.delete(`http://localhost:5000/profile/${userId}`).subscribe((data)=>{
+    this.http.delete(`https://node-js-wnil.onrender.com/profile/${userId}`).subscribe((data)=>{
       this.getprofileData()
       console.log(data)
     })
